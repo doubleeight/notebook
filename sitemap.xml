@@ -10,11 +10,33 @@
     
 
     
+        
     <url>
      <loc>https://doubleeight.github.io/notebook//blockchain/consensus/</loc>
      <lastmod>2018-03-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://doubleeight.github.io/notebook//container/</loc>
+     <lastmod>2018-03-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://doubleeight.github.io/notebook//microservice/</loc>
+     <lastmod>2018-03-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
