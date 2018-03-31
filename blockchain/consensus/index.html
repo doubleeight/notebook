@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="重八">
+  
+  <title>区块链 - 重八的个人笔记</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "区块链";
+    var mkdocs_page_input_path = "blockchain/consensus.md";
+    var mkdocs_page_url = "/blockchain/consensus/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 重八的个人笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">区块链</a>
+        
+            <ul>
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">重八的个人笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>区块链</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/doubleeight/notebook/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <ul>
+<li>1、Pow工作量证明，就是大家熟悉的挖矿，通过与或运算，计算出一个满足规则的随机数，即获得本次记账权，发出本轮需要记录的数据，全网其它节点验证后一起存储；<ul>
+<li>优点：完全去中心化，节点自由进出；</li>
+<li>缺点：目前bitcoin已经吸引全球大部分的算力，其它再用Pow共识机制的区块链应用很难获得相同的算力来保障自身的安全；挖矿造成大量的资源浪费；共识达成的周期较长，不适合商业应用应用案例：比特币</li>
+</ul>
+</li>
+<li>2、Pos权益证明，Pow的一种升级共识机制；根据每个节点所占代币的比例和时间；等比例的降低挖矿难度，从而加快找随机数的速度。<ul>
+<li>优点：在一定程度上缩短了共识达成的时间</li>
+<li>缺点：还是需要挖矿，本质上没有解决商业应用的痛点应用案例：未来币，以太坊采用了Pow+POS的混合机制。</li>
+</ul>
+</li>
+<li>3、DPos股份授权证明机制，类似于董事会投票，持币者投出一定数量的节点，代理他们进行验证和记账。<ul>
+<li>优点：大幅缩小参与验证和记账节点的数量，可以达到秒级的共识验证</li>
+<li>缺点：整个共识机制还是依赖于代币，很多商业应用是不需要代币存在的应用案例：比特股</li>
+</ul>
+</li>
+<li>4、pbft拜占庭容错算法，这是一种基于消息传递的一致性算法，算法经过三个阶段达成一致性，这些阶段可能因为失败而重复进行。假设节点总数为3f+1，f为拜赞庭错误节点：<ul>
+<li>1、当节点发现leader作恶时，通过算法选举其他的replica为leader。</li>
+<li>2、leader通过pre-prepare 消息把它选择的 value广播给其他replica节点，其他的replica节点如果接受则发送 prepare，如果失败则不发送。</li>
+<li>3、一旦2f个节点接受prepare消息，则节点发送commit消息。</li>
+<li>4、当2f+1个节点接受commit消息后，代表该value值被确定如下图表示了4个节点，0为leader，同时节点3为fault节点，该节点不响应和发出任何消息。最终节点状态达到commited时，表示该轮共识成功达成。
+<a href="../images/pbft.jpg"></a></li>
+<li>优点：上述共识算法都脱离不了币的存在，系统的正常运转必须有币的奖励机制，系统的安全性实际上是由系统币的持有者维护保证。当我们区块链系统实际运用到商业应用时，由其承载的资产价值可能远远超出系统发行的币的价值，如果由币的持有者保证系统的安全及稳定性将是不可靠的 。<ul>
+<li>1）系统运转可以脱离币的存在，pbft算法共识各节点由业务的参与方或者监管方组成，安全性与稳定性由业务相关方保证。</li>
+<li>2）共识的时延大约在2~5秒钟，基本达到商用实时处理的要求。</li>
+<li>3）共识效率高，可满足高频交易量的需求。应用：央行的数字货币、布萌区块链。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../.." class="btn btn-neutral" title="欢迎"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>重八（doubleeight@aliyun.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/doubleeight/notebook/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

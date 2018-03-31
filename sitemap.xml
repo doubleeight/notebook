@@ -3,7 +3,15 @@
 
     
     <url>
-     <loc>https://hyperledgercn.github.io/hyperledgerDocs//</loc>
+     <loc>https://doubleeight.github.io/notebook//</loc>
+     <lastmod>2018-03-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://doubleeight.github.io/notebook//blockchain/consensus/</loc>
      <lastmod>2018-03-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
